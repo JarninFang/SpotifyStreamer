@@ -76,6 +76,8 @@ public class MainActivityFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String artistName = artistAdapter.getItem(position).getName();
                 Intent intent = new Intent(getActivity(), TrackActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, artistName);
+                startActivity(intent);
             }
         });
 
@@ -135,17 +137,6 @@ public class MainActivityFragment extends Fragment {
 
             listView.setAdapter(new ArtistAdapter(getActivity(), artistsArrayList));
             Log.d("MainActivityFragment" , "onPostExecute");
-        }
-    }
-
-    public class FetchTracksTask extends AsyncTask<String, Void, Void> {
-        @Override
-        protected Void doInBackground(String... params) {
-            SpotifyApi spotifyApi = new SpotifyApi();
-            SpotifyService spotifyService = spotifyApi.getService();
-
-
-            return null;
         }
     }
 

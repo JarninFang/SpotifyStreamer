@@ -42,7 +42,7 @@ public class ArtistAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if(convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item_view, null);
+            convertView = inflater.inflate(R.layout.artist_list_item_view, null);
             holder = new ViewHolder();
             holder.artistImage = (ImageView)
                     convertView.findViewById(R.id.list_item_artist_imageview);
@@ -56,7 +56,7 @@ public class ArtistAdapter extends BaseAdapter {
 
         Log.d("ArtistAdapter", "artistInfoArrayList = " + artistInfoArrayList.get(position).getName());
         holder.artistText.setText(artistInfoArrayList.get(position).getName());
-        if(artistInfoArrayList.get(position) != null) {
+        if(artistInfoArrayList.get(position).getImageURL() != null) {
             Picasso.with(parent.getContext()).load(artistInfoArrayList.get(position).getImageURL())
                     .into(holder.artistImage);
         } else {

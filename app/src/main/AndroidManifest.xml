@@ -19,6 +19,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".TrackActivity"
+            android:label="SpotifyStreamer"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
     </application>
 
 </manifest>
